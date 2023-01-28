@@ -6,18 +6,36 @@ let emp = [
   { name: 'ccc', age: 20 },
   { name: 'ddd', age: 28 },
   { name: 'eee', age: 24 },
+  { name: 'fff', age: 20 },
+  { name: 'ggg', age: 22 },
+  { name: 'hhh', age: 24 },
 ];
 
 //console.log(emp);
 const ageBelow25 = emp.filter((employee) => employee.age < 25);
 //console.log(ageBelow25);
-var empDivIs = document.getElementById('empDiv');
-ageBelow25.map(({ name, age }) => {
-  const dataToShow = '<h4>' + name + ' and age is ' + age + '<h4>';
-  //console.log(dataToShow);
-  empDivIs.innerHTML =
-    empDivIs.innerHTML + '<br/>' + name + ' and age is ' + age;
+// var headDiv = document.getElementById('header');
+// headDiv.addEventListener('click', () => {
+//   console.log('i am clicked!!');
+// });
+
+// var empDivIs = document.getElementById('empDiv');
+// ageBelow25.map(({ name, age }) => {
+//   const dataToShow = `<li> ${name}  and age is ${age} </li>`;
+//   empDivIs.innerHTML = empDivIs.innerHTML + dataToShow;
+// });
+
+const empDivIs = document.getElementById('empDiv');
+const fragment = document.createDocumentFragment();
+ageBelow25.forEach(({ name, age }) => {
+  const li = document.createElement('li');
+  li.innerText = ` ${name} er and age is ${age}`;
+  li.addEventListener('click', function () {
+    console.log('clicked', name);
+  });
+  fragment.appendChild(li);
 });
+empDivIs.appendChild(fragment);
 
 //empDivIs.innerHTML = JSON.stringify(ageBelow25);
 
