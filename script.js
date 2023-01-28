@@ -1,5 +1,5 @@
 //console.log('Hello!');
-
+// In JavaScript, create a list of data that is less than 25 years old and add a click event to each line.
 let emp = [
   { name: 'abc', age: 30 },
   { name: 'bbb', age: 50 },
@@ -11,9 +11,19 @@ let emp = [
   { name: 'hhh', age: 24 },
 ];
 
-//console.log(emp);
 const ageBelow25 = emp.filter((employee) => employee.age < 25);
-//console.log(ageBelow25);
+const empDivIs = document.getElementById('empDiv');
+const fragment = document.createDocumentFragment();
+ageBelow25.forEach(({ name, age }) => {
+  const li = document.createElement('li');
+  li.innerText = ` ${name} er and age is ${age}`;
+  li.addEventListener('click', function () {
+    console.log('clicked ', name);
+  });
+  fragment.appendChild(li);
+});
+empDivIs.appendChild(fragment);
+
 // var headDiv = document.getElementById('header');
 // headDiv.addEventListener('click', () => {
 //   console.log('i am clicked!!');
@@ -24,18 +34,6 @@ const ageBelow25 = emp.filter((employee) => employee.age < 25);
 //   const dataToShow = `<li> ${name}  and age is ${age} </li>`;
 //   empDivIs.innerHTML = empDivIs.innerHTML + dataToShow;
 // });
-
-const empDivIs = document.getElementById('empDiv');
-const fragment = document.createDocumentFragment();
-ageBelow25.forEach(({ name, age }) => {
-  const li = document.createElement('li');
-  li.innerText = ` ${name} er and age is ${age}`;
-  li.addEventListener('click', function () {
-    console.log('clicked', name);
-  });
-  fragment.appendChild(li);
-});
-empDivIs.appendChild(fragment);
 
 //empDivIs.innerHTML = JSON.stringify(ageBelow25);
 
