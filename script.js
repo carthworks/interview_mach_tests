@@ -15,10 +15,11 @@ var empDivIs = document.getElementById('empDiv');
 ageBelow25.map(({ name, age }) => {
   const dataToShow = '<h4>' + name + ' and age is ' + age + '<h4>';
   //console.log(dataToShow);
-  empDivIs.append = dataToShow;
+  empDivIs.innerHTML =
+    empDivIs.innerHTML + '<br/>' + name + ' and age is ' + age;
 });
 
-empDivIs.innerHTML = JSON.stringify(ageBelow25);
+//empDivIs.innerHTML = JSON.stringify(ageBelow25);
 
 // function EmpNames() {}
 // EmpNames.prototype = {
